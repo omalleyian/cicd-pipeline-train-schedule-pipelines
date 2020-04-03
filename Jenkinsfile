@@ -1,10 +1,14 @@
 pipeline {
   stages {
     stage("Build") {
-      sh "./gradlew build"
+      step {
+        sh "./gradlew build"
+      }
     }
     stage("Archive") {
-      archiveArtifacts 'dist/trainSchedule.zip'
+      step {
+        archiveArtifacts 'dist/trainSchedule.zip'
+      }
     }
   }
 }
