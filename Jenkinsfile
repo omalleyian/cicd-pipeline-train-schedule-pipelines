@@ -1,12 +1,14 @@
 pipeline {
+  agent any
+  
   stages {
     stage("Build") {
-      step {
+      steps {
         sh "./gradlew build"
       }
     }
     stage("Archive") {
-      step {
+      steps {
         archiveArtifacts 'dist/trainSchedule.zip'
       }
     }
